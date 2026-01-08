@@ -1,4 +1,4 @@
-Jan 05, 2026 1:14:26 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:12:38 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -6,7 +6,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -19,7 +19,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:14:31 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:12:38 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -27,7 +27,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -40,7 +40,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:21:03 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:19:22 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -48,7 +48,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -61,7 +61,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:21:49 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:20:09 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -69,7 +69,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -82,7 +82,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:22:53 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:20:59 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -90,7 +90,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -103,7 +103,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:23:11 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:21:00 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -111,7 +111,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -124,7 +124,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:23:12 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:21:00 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -132,7 +132,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -145,7 +145,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:23:12 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:21:01 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -153,7 +153,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -166,7 +166,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:23:13 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:21:11 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -174,7 +174,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -187,7 +187,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:23:13 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:21:12 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -195,7 +195,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -208,7 +208,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:23:38 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:21:40 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -216,7 +216,7 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
@@ -229,7 +229,7 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_O
 	at com.google.gson.Gson.fromJson(Gson.java:991)
 	... 10 more
 
-Jan 05, 2026 1:24:11 PM ai.glog.service.GlogService getFromGlog
+Jan 08, 2026 11:21:41 AM ai.glog.service.GlogService getFromGlog
 SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
 {"sink":["Ensure this field has no more than 5000 characters."]}
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
@@ -237,7 +237,28 @@ com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected B
 	at com.google.gson.Gson.fromJson(Gson.java:956)
 	at com.google.gson.Gson.fromJson(Gson.java:905)
 	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:209)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
+	at com.google.gson.stream.JsonReader.beginArray(JsonReader.java:350)
+	at com.google.gson.internal.bind.ArrayTypeAdapter.read(ArrayTypeAdapter.java:70)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	... 10 more
+
+Jan 08, 2026 11:22:18 AM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
+{"sink":["Ensure this field has no more than 5000 characters."]}
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $
+	at com.google.gson.Gson.fromJson(Gson.java:1003)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:212)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:64)
 	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:32)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)

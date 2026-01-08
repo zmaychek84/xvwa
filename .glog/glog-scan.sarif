@@ -34,50 +34,6 @@
               }
             },
             {
-              "id": "67c6c8ff-a776-39c7-a348-2455c3c2eb4a",
-              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript refers to a situation where an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the application is using jQuery to create a new element based on the `target` property of the event `e`. If the `target` property is controlled by the user, this could lead to a Cross-Site Scripting (XSS) vulnerability.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data that is received from an external party. Also, use appropriate response headers to prevent any kind of XSS attacks.\n\n## Source Code Fix Recommendation\n\n```javascript\nvar $btn = $(e.target);\n```\n\nA safer approach would be to use text nodes or to sanitize the input before using it:\n\n```javascript\nvar $btn = $(document.createTextNode(e.target));\n```\n\n## Library Dependencies\n\nThe code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
-              "id": "e8750dc5-2fc7-3f9b-913e-67da2b30eda5",
-              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the given code snippet, the vulnerability arises from the fact that the `element` variable is directly used to create a jQuery object without any sanitization or encoding. If the `element` variable contains a malicious script, it will be executed when the jQuery object is created.\n\n## Mitigation Advice\n\nTo mitigate XSS vulnerabilities, it is recommended to:\n\n- Always validate user input: User input should always be validated before it is processed. This includes not only checking for illegal characters, but also checking for the correct data type, length, format, and range.\n\n- Use appropriate output encoding: When user input is included in output, it should be properly encoded to ensure that it is treated as data, not as code.\n\n- Use safe APIs: Some APIs provide automatic escaping of user input, which can help to prevent XSS vulnerabilities.\n\n## Source Code Fix Recommendation\n\nThe following code snippet demonstrates how to sanitize the `element` variable before using it to create a jQuery object:\n\n```javascript\nvar sanitizedElement = $(\"<div>\").text(element).html();\nthis.$element = $(sanitizedElement);\n```\n\nIn this code, the `text()` method is used to set the text content of a new `<div>` element to the value of `element`. This automatically escapes any HTML tags in `element`. The `html()` method is then used to get the escaped HTML content of the `<div>` element.\n\n## Library Dependencies\n\nThe code example requires the jQuery library.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
               "id": "ca489662-a73b-39e4-83f8-9160b14d7dff",
               "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
               "helpUri": "https://www.glog.ai/",
@@ -100,12 +56,12 @@
               }
             },
             {
-              "id": "8b566c71-afcc-367e-9af7-3b2f9df22a48",
+              "id": "67c6c8ff-a776-39c7-a348-2455c3c2eb4a",
               "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the application is toggling a class based on the event type, which is controlled by the user. If an attacker can manipulate the event type, they could potentially inject malicious scripts.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data that is received from a user. \n\nIn addition, use context-specific output encoding/escaping techniques when inserting user-controlled data into HTML, attribute, JavaScript, CSS, and URL contexts.\n\n## Source Code Fix Recommendation\n\nThe code snippet is using jQuery. To fix the vulnerability, you should sanitize the event type before using it. Here is a simple fix:\n\n```javascript\nvar eventType = e.type;\nif (/^focus(in)?$/.test(eventType)) {\n    $(e.target).closest('.btn').toggleClass('focus', true);\n} else {\n    $(e.target).closest('.btn').toggleClass('focus', false);\n}\n```\n\n## Library Dependencies\n\nThe code example requires the jQuery library.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript refers to a situation where an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the application is using jQuery to create a new element based on the `target` property of the event `e`. If the `target` property is controlled by the user, this could lead to a Cross-Site Scripting (XSS) vulnerability.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data that is received from an external party. Also, use appropriate response headers to prevent any kind of XSS attacks.\n\n## Source Code Fix Recommendation\n\n```javascript\nvar $btn = $(e.target);\n```\n\nA safer approach would be to use text nodes or to sanitize the input before using it:\n\n```javascript\nvar $btn = $(document.createTextNode(e.target));\n```\n\n## Library Dependencies\n\nThe code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -144,12 +100,34 @@
               }
             },
             {
-              "id": "9f7d649f-4b7a-3fcf-b4c0-f65db6c75992",
-              "name": "\"Potential XSS Vulnerability from User-Controlled Data in HTML String\"",
+              "id": "e8750dc5-2fc7-3f9b-913e-67da2b30eda5",
+              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nA potential Cross-Site Scripting (XSS) vulnerability can occur when user-controlled data is used in an HTML string. In the provided JavaScript code, the user-controlled data is being used to manipulate the class of an HTML element. If an attacker can control the `type` or `direction` variables, they could potentially inject malicious scripts that would be executed in the context of the victim's session.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always validate and sanitize user input. This can be done by using a whitelist of allowed characters or by escaping special characters. Additionally, consider using Content Security Policy (CSP) to reduce the risk of XSS attacks.\n\n## Source Code Fix Recommendation\n\n```javascript\n// Assuming type and direction are user-controlled\ntype = sanitizeInput(type);\ndirection = sanitizeInput(direction);\n\n$next.removeClass([type, direction].join(' ')).addClass('active');\n\nfunction sanitizeInput(input) {\n    // Replace with your own sanitization logic\n    return input.replace(/</g, \"&lt;\").replace(/>/g, \"&gt;\");\n}\n```\n\nIn this example, a simple sanitization function is used to replace `<` and `>` characters with their HTML encoded equivalents. This prevents any HTML tags from being interpreted by the browser. Note that this is a very basic example and may not cover all possible attack vectors.\n\n## Library Dependencies\n\nThe provided code snippet appears to be using jQuery, a popular JavaScript library.\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the given code snippet, the vulnerability arises from the fact that the `element` variable is directly used to create a jQuery object without any sanitization or encoding. If the `element` variable contains a malicious script, it will be executed when the jQuery object is created.\n\n## Mitigation Advice\n\nTo mitigate XSS vulnerabilities, it is recommended to:\n\n- Always validate user input: User input should always be validated before it is processed. This includes not only checking for illegal characters, but also checking for the correct data type, length, format, and range.\n\n- Use appropriate output encoding: When user input is included in output, it should be properly encoded to ensure that it is treated as data, not as code.\n\n- Use safe APIs: Some APIs provide automatic escaping of user input, which can help to prevent XSS vulnerabilities.\n\n## Source Code Fix Recommendation\n\nThe following code snippet demonstrates how to sanitize the `element` variable before using it to create a jQuery object:\n\n```javascript\nvar sanitizedElement = $(\"<div>\").text(element).html();\nthis.$element = $(sanitizedElement);\n```\n\nIn this code, the `text()` method is used to set the text content of a new `<div>` element to the value of `element`. This automatically escapes any HTML tags in `element`. The `html()` method is then used to get the escaped HTML content of the `<div>` element.\n\n## Library Dependencies\n\nThe code example requires the jQuery library.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
+              "id": "8b566c71-afcc-367e-9af7-3b2f9df22a48",
+              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the application is toggling a class based on the event type, which is controlled by the user. If an attacker can manipulate the event type, they could potentially inject malicious scripts.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data that is received from a user. \n\nIn addition, use context-specific output encoding/escaping techniques when inserting user-controlled data into HTML, attribute, JavaScript, CSS, and URL contexts.\n\n## Source Code Fix Recommendation\n\nThe code snippet is using jQuery. To fix the vulnerability, you should sanitize the event type before using it. Here is a simple fix:\n\n```javascript\nvar eventType = e.type;\nif (/^focus(in)?$/.test(eventType)) {\n    $(e.target).closest('.btn').toggleClass('focus', true);\n} else {\n    $(e.target).closest('.btn').toggleClass('focus', false);\n}\n```\n\n## Library Dependencies\n\nThe code example requires the jQuery library.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -188,12 +166,12 @@
               }
             },
             {
-              "id": "2ce4b686-39cf-3dce-99c2-8a20f4514fc8",
-              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
+              "id": "b75a9ee1-d014-34a8-beb2-fdca2f8d7c3f",
+              "name": "\"Potential XSS Vulnerability from User-Controlled Data in HTML String\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the vulnerability arises from the fact that the `element` variable is directly used to create a jQuery object without any sanitization or encoding. If the `element` variable contains a malicious script, it will be executed when the jQuery object is created.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data received from the user. Use a secure method to handle the user input, such as encoding or escaping it, to prevent the input from being interpreted as code.\n\n## Source Code Fix Recommendation\n\n```javascript\nthis.$element = $(encodeURI(element))\n```\n\nIn this fix, the `encodeURI` function is used to encode the `element` variable. This function encodes special characters, except: , / ? : @ & = + $ #. This will prevent any scripts in the `element` variable from being executed.\n\n## Library Dependencies\n\nThe code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+                "markdown": "## Description\n\nThe code snippet provided is vulnerable to a Cross-Site Scripting (XSS) attack. This is because it directly uses user-controlled data (`element.id`) in an HTML string. An attacker could potentially manipulate `element.id` to inject malicious scripts, which would then be executed in the user's browser when the page is rendered.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always sanitize user-controlled data before using it in an HTML string. This can be done by using a library that provides HTML encoding functions, such as jQuery's `text()` function or lodash's `escape()` function.\n\n## Source Code Fix Recommendation\n\nHere is a fixed version of the code snippet using jQuery's `text()` function:\n\n```javascript\nvar safeElementId = $('<div>').text(element.id).html();\nthis.$trigger = $('[data-toggle=\"collapse\"][href=\"#' + safeElementId + '\"],' +\n                 '[data-toggle=\"collapse\"][data-target=\"#' + safeElementId + '\"]')\n```\n\n## Library Dependencies\n\nThe code example requires the following library to execute properly:\n\n- jQuery\n\n## OWASP and CWE Links\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -232,12 +210,12 @@
               }
             },
             {
-              "id": "b75a9ee1-d014-34a8-beb2-fdca2f8d7c3f",
+              "id": "9f7d649f-4b7a-3fcf-b4c0-f65db6c75992",
               "name": "\"Potential XSS Vulnerability from User-Controlled Data in HTML String\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nThe code snippet provided is vulnerable to a Cross-Site Scripting (XSS) attack. This is because it directly uses user-controlled data (`element.id`) in an HTML string. An attacker could potentially manipulate `element.id` to inject malicious scripts, which would then be executed in the user's browser when the page is rendered.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always sanitize user-controlled data before using it in an HTML string. This can be done by using a library that provides HTML encoding functions, such as jQuery's `text()` function or lodash's `escape()` function.\n\n## Source Code Fix Recommendation\n\nHere is a fixed version of the code snippet using jQuery's `text()` function:\n\n```javascript\nvar safeElementId = $('<div>').text(element.id).html();\nthis.$trigger = $('[data-toggle=\"collapse\"][href=\"#' + safeElementId + '\"],' +\n                 '[data-toggle=\"collapse\"][data-target=\"#' + safeElementId + '\"]')\n```\n\n## Library Dependencies\n\nThe code example requires the following library to execute properly:\n\n- jQuery\n\n## OWASP and CWE Links\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+                "markdown": "## Description\n\nA potential Cross-Site Scripting (XSS) vulnerability can occur when user-controlled data is used in an HTML string. In the provided JavaScript code, the user-controlled data is being used to manipulate the class of an HTML element. If an attacker can control the `type` or `direction` variables, they could potentially inject malicious scripts that would be executed in the context of the victim's session.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always validate and sanitize user input. This can be done by using a whitelist of allowed characters or by escaping special characters. Additionally, consider using Content Security Policy (CSP) to reduce the risk of XSS attacks.\n\n## Source Code Fix Recommendation\n\n```javascript\n// Assuming type and direction are user-controlled\ntype = sanitizeInput(type);\ndirection = sanitizeInput(direction);\n\n$next.removeClass([type, direction].join(' ')).addClass('active');\n\nfunction sanitizeInput(input) {\n    // Replace with your own sanitization logic\n    return input.replace(/</g, \"&lt;\").replace(/>/g, \"&gt;\");\n}\n```\n\nIn this example, a simple sanitization function is used to replace `<` and `>` characters with their HTML encoded equivalents. This prevents any HTML tags from being interpreted by the browser. Note that this is a very basic example and may not cover all possible attack vectors.\n\n## Library Dependencies\n\nThe provided code snippet appears to be using jQuery, a popular JavaScript library.\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -254,34 +232,12 @@
               }
             },
             {
-              "id": "ac83c083-8b33-3d23-9254-f0ac71a6e453",
-              "name": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\"",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nThe \"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\" is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the jQuery function `$(element).on('click.bs.dropdown', this.toggle)` is vulnerable to Cross-Site Scripting (XSS) attacks. This is because the `this.toggle` function could potentially include untrusted data that can lead to script injection.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should:\n\n1. Use the principle of least privilege to limit what untrusted data can do. Do not allow it to select its own functions or methods.\n\n2. Validate and sanitize user input. Ensure that user-controlled data is safe before using it.\n\n3. Use Content Security Policy (CSP) to limit the impact of XSS attacks by declaring what dynamic resources are allowed to load.\n\n## Source Code Fix Recommendation\n\nWithout the full context of the `this.toggle` function, it's hard to provide a specific fix. However, a general recommendation would be to sanitize any user-controlled data that is passed into the function. For example:\n\n```javascript\n$(element).on('click.bs.dropdown', function() {\n    var sanitizedData = sanitize(this.toggle);\n    // ... rest of the function\n});\n```\n\nIn this example, `sanitize` is a hypothetical function that you would need to implement or import from a trusted library, which removes or escapes any potentially harmful characters or sequences.\n\n## Library Dependencies\n\nThe provided code snippet requires jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
-              "id": "98029ee4-79db-3916-9522-289d0cf9cca2",
+              "id": "2ce4b686-39cf-3dce-99c2-8a20f4514fc8",
               "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet `return $(target)`, the `target` variable is directly used to select an element without any sanitization or encoding. If the `target` is user-controlled and not properly sanitized, it can lead to XSS attacks.\n\n## Mitigation Advice\n\nTo mitigate XSS vulnerabilities, you should:\n\n- Use frameworks that automatically escape XSS by design, such as Ruby on Rails, React JS, etc.\n- Escape untrusted HTTP request data based on the context in the HTML output (body, attribute, JavaScript, CSS, or URL) will resolve Reflected and Stored XSS vulnerabilities.\n- Apply context-sensitive encoding when modifying the browser document on the client side acts against DOM XSS.\n- Enable a Content Security Policy (CSP) as a safety net to mitigate the impact of any potential XSS vulnerability.\n\n## Source Code Fix Recommendation\n\nIn the provided code snippet, you should sanitize the `target` variable before using it. Here is an example of how you can do it:\n\n```javascript\nlet sanitizedTarget = $(\"<div>\").text(target).html();\nreturn $(sanitizedTarget);\n```\n\n## Library Dependencies\n\nThe provided code snippet requires jQuery to execute properly.\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://owasp.org/www-community/xss-filter-evasion-cheatsheet)\n\n## CWE\n\nThis vulnerability can be classified under [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)."
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the vulnerability arises from the fact that the `element` variable is directly used to create a jQuery object without any sanitization or encoding. If the `element` variable contains a malicious script, it will be executed when the jQuery object is created.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data received from the user. Use a secure method to handle the user input, such as encoding or escaping it, to prevent the input from being interpreted as code.\n\n## Source Code Fix Recommendation\n\n```javascript\nthis.$element = $(encodeURI(element))\n```\n\nIn this fix, the `encodeURI` function is used to encode the `element` variable. This function encodes special characters, except: , / ? : @ & = + $ #. This will prevent any scripts in the `element` variable from being executed.\n\n## Library Dependencies\n\nThe code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -320,12 +276,12 @@
               }
             },
             {
-              "id": "0f66dba1-7064-374d-9485-37e4c89b0d77",
+              "id": "98029ee4-79db-3916-9522-289d0cf9cca2",
               "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nThe specific vulnerability sink in the provided code is:\n\n```javascript\nthis.$element = $(element)\n```\n\nThis code is vulnerable because it directly uses user-controlled data (`element`) as a jQuery selector. If an attacker can control the `element` value, they can inject arbitrary JavaScript code, leading to an XSS vulnerability.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data received from the user. Use existing libraries to escape potentially dangerous characters. \n\n## Source Code Fix Recommendation\n\nA simple fix for this specific vulnerability sink would be to ensure that `element` is a DOM element, not a string. This can be done by checking the `nodeType` property:\n\n```javascript\nif (element.nodeType) {\n    this.$element = $(element);\n} else {\n    throw new Error('Invalid element');\n}\n```\n\n## Library Dependencies\n\nThe provided code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet `return $(target)`, the `target` variable is directly used to select an element without any sanitization or encoding. If the `target` is user-controlled and not properly sanitized, it can lead to XSS attacks.\n\n## Mitigation Advice\n\nTo mitigate XSS vulnerabilities, you should:\n\n- Use frameworks that automatically escape XSS by design, such as Ruby on Rails, React JS, etc.\n- Escape untrusted HTTP request data based on the context in the HTML output (body, attribute, JavaScript, CSS, or URL) will resolve Reflected and Stored XSS vulnerabilities.\n- Apply context-sensitive encoding when modifying the browser document on the client side acts against DOM XSS.\n- Enable a Content Security Policy (CSP) as a safety net to mitigate the impact of any potential XSS vulnerability.\n\n## Source Code Fix Recommendation\n\nIn the provided code snippet, you should sanitize the `target` variable before using it. Here is an example of how you can do it:\n\n```javascript\nlet sanitizedTarget = $(\"<div>\").text(target).html();\nreturn $(sanitizedTarget);\n```\n\n## Library Dependencies\n\nThe provided code snippet requires jQuery to execute properly.\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://owasp.org/www-community/xss-filter-evasion-cheatsheet)\n\n## CWE\n\nThis vulnerability can be classified under [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)."
               },
               "properties": {
                 "cwe": [
@@ -364,12 +320,12 @@
               }
             },
             {
-              "id": "1f32be1a-25c9-3a75-be95-da4faff0d598",
-              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
+              "id": "ac83c083-8b33-3d23-9254-f0ac71a6e453",
+              "name": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript where an attacker can inject malicious scripts into webpages viewed by other users. This vulnerability occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.\n\nIn the provided code snippet, the variable `$parent` is assigned the value of `$(selector)`, where `selector` is user-controlled data. If `selector` contains a malicious script, it will be executed when `$parent` is used.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data provided by users. Also, use appropriate response headers to prevent any kind of script execution.\n\n## Source Code Fix Recommendation\n\n```javascript\nvar $parent = selector && $(selector).text();\n```\n\nIn the above code, `.text()` method is used to get the combined text contents of each element in the set of matched elements, including their descendants. This method returns only the text content, not the HTML tags or entities, which prevents script execution.\n\n## Library Dependencies\n\nThe code example requires jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+                "markdown": "## Description\n\nThe \"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\" is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the jQuery function `$(element).on('click.bs.dropdown', this.toggle)` is vulnerable to Cross-Site Scripting (XSS) attacks. This is because the `this.toggle` function could potentially include untrusted data that can lead to script injection.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should:\n\n1. Use the principle of least privilege to limit what untrusted data can do. Do not allow it to select its own functions or methods.\n\n2. Validate and sanitize user input. Ensure that user-controlled data is safe before using it.\n\n3. Use Content Security Policy (CSP) to limit the impact of XSS attacks by declaring what dynamic resources are allowed to load.\n\n## Source Code Fix Recommendation\n\nWithout the full context of the `this.toggle` function, it's hard to provide a specific fix. However, a general recommendation would be to sanitize any user-controlled data that is passed into the function. For example:\n\n```javascript\n$(element).on('click.bs.dropdown', function() {\n    var sanitizedData = sanitize(this.toggle);\n    // ... rest of the function\n});\n```\n\nIn this example, `sanitize` is a hypothetical function that you would need to implement or import from a trusted library, which removes or escapes any potentially harmful characters or sequences.\n\n## Library Dependencies\n\nThe provided code snippet requires jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -408,12 +364,56 @@
               }
             },
             {
+              "id": "1f32be1a-25c9-3a75-be95-da4faff0d598",
+              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript where an attacker can inject malicious scripts into webpages viewed by other users. This vulnerability occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.\n\nIn the provided code snippet, the variable `$parent` is assigned the value of `$(selector)`, where `selector` is user-controlled data. If `selector` contains a malicious script, it will be executed when `$parent` is used.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data provided by users. Also, use appropriate response headers to prevent any kind of script execution.\n\n## Source Code Fix Recommendation\n\n```javascript\nvar $parent = selector && $(selector).text();\n```\n\nIn the above code, `.text()` method is used to get the combined text contents of each element in the set of matched elements, including their descendants. This method returns only the text content, not the HTML tags or entities, which prevents script execution.\n\n## Library Dependencies\n\nThe code example requires jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
               "id": "3b6d1d2a-05ed-381c-9064-5e920dff30f1",
               "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript refers to a situation where an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the vulnerability lies in the concatenation of `this.type` to form a data attribute selector. If `this.type` is user-controlled and not properly sanitized, it can lead to Cross-Site Scripting (XSS) attacks.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should:\n\n1. **Escape User Input**: Always escape user-controlled data before using it. This ensures that any potentially harmful input is neutralized before it can cause any damage.\n\n2. **Use Safe APIs**: Use APIs, such as Web Templates, which automatically escape user input.\n\n3. **Content Security Policy (CSP)**: Implementing CSP makes it harder for an attacker to inject malicious content.\n\n## Source Code Fix Recommendation\n\nThe code fix involves sanitizing `this.type` before using it. Here's a simple way to do it using the `encodeURI` function:\n\n```javascript\nvar type = encodeURI(this.type);\nobj : $(obj.currentTarget).data('bs.' + type)\n```\n\n## Library Dependencies\n\nThe code example requires the following library to execute properly:\n\n- jQuery\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
+              "id": "0f66dba1-7064-374d-9485-37e4c89b0d77",
+              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nThe specific vulnerability sink in the provided code is:\n\n```javascript\nthis.$element = $(element)\n```\n\nThis code is vulnerable because it directly uses user-controlled data (`element`) as a jQuery selector. If an attacker can control the `element` value, they can inject arbitrary JavaScript code, leading to an XSS vulnerability.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data received from the user. Use existing libraries to escape potentially dangerous characters. \n\n## Source Code Fix Recommendation\n\nA simple fix for this specific vulnerability sink would be to ensure that `element` is a DOM element, not a string. This can be done by checking the `nodeType` property:\n\n```javascript\nif (element.nodeType) {\n    this.$element = $(element);\n} else {\n    throw new Error('Invalid element');\n}\n```\n\n## Library Dependencies\n\nThe provided code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -474,12 +474,12 @@
               }
             },
             {
-              "id": "0ad5acf2-4ad8-3152-a52d-dcce66bebe23",
-              "name": "Potential XSS Vulnerability from User-Controlled Data in HTML String",
+              "id": "2563161e-9f7e-39e1-9a12-7545785b4f6d",
+              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) vulnerabilities occur when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided JavaScript code, the potential XSS vulnerability arises from the use of user-controlled data in the HTML string without proper sanitization or validation. This could allow an attacker to inject malicious scripts that could be executed in the user's browser.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to:\n\n- Always validate user input: User input should always be validated before it is processed. This includes checking for expected data types, lengths, and formats.\n\n- Escape user input: User input should be properly escaped before it is included in HTML content. This ensures that any special characters are treated as literal characters and not as code.\n\n- Use secure APIs: Use APIs, such as element.textContent (and avoid element.innerHTML), that automatically escape user input.\n\n- Use Content Security Policy (CSP): Implementing CSP can effectively reduce the risk and impact of XSS attacks by specifying the domains that the browser should consider to be valid sources of executable scripts.\n\n## Source Code Fix Recommendation\n\nThe provided code does not include any user input, so it's hard to provide a specific fix. However, if user input was included in the CSS method, it should be properly validated and escaped. For example:\n\n```javascript\nlet userInput = getUserInput(); // This is a placeholder for user input\nuserInput = escape(userInput); // Escape user input\n\nthis.arrow()\n      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')\n      .css(isVertical ? 'top' : 'left', userInput)\n```\n\n## Library Dependencies\n\nThe provided code appears to use jQuery for manipulating CSS properties of an element. Therefore, jQuery is a required library dependency for this code to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript occurs when user-controlled data is used in a way that allows for Cross-Site Scripting (XSS) attacks. In the provided code snippet, the user-controlled data is being used to construct a string that is then used as a key to retrieve data from an object. If an attacker can control the value of `this.type`, they could potentially inject malicious scripts that would be executed in the context of the user's session.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should avoid using user-controlled data to construct keys for data retrieval or manipulation. If it's necessary to use user-controlled data in this way, you should validate and sanitize the data to ensure it doesn't contain any malicious scripts or unexpected characters.\n\n## Source Code Fix Recommendation\n\n```javascript\n// Assuming `this.type` is user-controlled data\nlet type = this.type;\n\n// Validate and sanitize `type` before using it\nif (typeof type !== 'string' || !/^[a-zA-Z0-9]+$/.test(type)) {\n    throw new Error('Invalid type');\n}\n\n$(obj.currentTarget).data('bs.' + type, self);\n```\n\nIn this fix, we first ensure that `type` is a string and then use a regular expression to check that it only contains alphanumeric characters. If `type` doesn't pass these checks, an error is thrown.\n\n## Library Dependencies\n\nThe provided code snippet requires the jQuery library.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -518,72 +518,6 @@
               }
             },
             {
-              "id": "a8c80fde-a5e3-3697-9de5-0a5f089a0e35",
-              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript refers to a situation where an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the vulnerability lies in the concatenation of `this.type` to form a data attribute selector. If `this.type` is user-controlled and not properly sanitized, it can lead to Cross-Site Scripting (XSS) attacks.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should:\n\n1. **Escape User Input**: Always escape user-controlled data before using it. This ensures that any potentially harmful input is neutralized before it can cause any damage.\n\n2. **Use Safe APIs**: Use APIs, such as Web Templates, which automatically escape user input.\n\n3. **Content Security Policy (CSP)**: Implementing CSP makes it harder for an attacker to inject malicious content.\n\n## Source Code Fix Recommendation\n\nThe code fix involves sanitizing `this.type` before using it. Here's a simple way to do it using the `encodeURI` function:\n\n```javascript\nvar type = encodeURI(this.type);\nobj : $(obj.currentTarget).data('bs.' + type)\n```\n\n## Library Dependencies\n\nThe code example requires the following library to execute properly:\n\n- jQuery\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
-              "id": "2563161e-9f7e-39e1-9a12-7545785b4f6d",
-              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript occurs when user-controlled data is used in a way that allows for Cross-Site Scripting (XSS) attacks. In the provided code snippet, the user-controlled data is being used to construct a string that is then used as a key to retrieve data from an object. If an attacker can control the value of `this.type`, they could potentially inject malicious scripts that would be executed in the context of the user's session.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should avoid using user-controlled data to construct keys for data retrieval or manipulation. If it's necessary to use user-controlled data in this way, you should validate and sanitize the data to ensure it doesn't contain any malicious scripts or unexpected characters.\n\n## Source Code Fix Recommendation\n\n```javascript\n// Assuming `this.type` is user-controlled data\nlet type = this.type;\n\n// Validate and sanitize `type` before using it\nif (typeof type !== 'string' || !/^[a-zA-Z0-9]+$/.test(type)) {\n    throw new Error('Invalid type');\n}\n\n$(obj.currentTarget).data('bs.' + type, self);\n```\n\nIn this fix, we first ensure that `type` is a string and then use a regular expression to check that it only contains alphanumeric characters. If `type` doesn't pass these checks, an error is thrown.\n\n## Library Dependencies\n\nThe provided code snippet requires the jQuery library.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
-              "id": "41ea159f-bf42-34de-afea-03fbf4a0c508",
-              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nThe provided code snippet is vulnerable to XSS because it uses jQuery to create a new DOM element from a string that is controlled by the user (`this.$tip`). If `this.$tip` contains a malicious script, it will be executed when the DOM element is created.\n\n## Mitigation Advice\n\nTo mitigate XSS vulnerabilities, you should:\n\n- Use frameworks that automatically escape XSS by design, such as Ruby on Rails, React JS, etc.\n- Escape untrusted HTTP request data based on the context in the HTML output (body, attribute, JavaScript, CSS, or URL) will resolve Reflected and Stored XSS vulnerabilities.\n- Apply context-sensitive encoding when modifying the browser document on the client side acts against DOM XSS.\n\n## Source Code Fix Recommendation\n\nIn this specific case, you should ensure that `this.$tip` is properly escaped before it is used to create a new DOM element. Here's how you can do it using jQuery's `text()` function:\n\n```javascript\nvar $tip = $('<div></div>').text(this.$tip);\n```\n\nThis will create a new `<div>` element and set its text content to `this.$tip`, effectively escaping any HTML or JavaScript that `this.$tip` might contain.\n\n## Library Dependencies\n\nThe provided code snippet requires the jQuery library.\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
               "id": "dd64e461-daee-3825-be77-df3ac81569a3",
               "name": "Secure Regex Against User Input to Prevent ReDoS Vulnerability",
               "helpUri": "https://www.glog.ai/",
@@ -606,34 +540,12 @@
               }
             },
             {
-              "id": "7313bf39-731d-3664-8253-05556a3b6c41",
+              "id": "a8c80fde-a5e3-3697-9de5-0a5f089a0e35",
               "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the vulnerability arises from the concatenation of `this.type` (which could be user-controlled data) with a string to form a data attribute name. If `this.type` is not properly sanitized, it could lead to Cross-Site Scripting (XSS) attacks.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should:\n\n1. Use the principle of least privilege: Only allow necessary permissions for the code to execute properly.\n2. Validate user input: Ensure that user-controlled data is safe before using it.\n3. Escape user input: This ensures that any characters that have special meaning in HTML are properly encoded, preventing them from being interpreted as code.\n4. Use secure APIs: These APIs automatically handle the escaping of user input.\n\n## Source Code Fix Recommendation\n\nA potential fix for the provided code snippet could be to sanitize `this.type` before using it:\n\n```javascript\nvar sanitizedType = encodeURI(this.type);\n$(e.currentTarget).data('bs.' + sanitizedType, self);\n```\n\nThis code uses the `encodeURI` function to sanitize `this.type`, encoding special characters and preventing them from being interpreted as code.\n\n## Library Dependencies\n\nThe provided code snippet requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
-              "id": "451f3eaf-04ed-3e04-951f-b45a25272260",
-              "name": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\"",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nThe \"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\" is a common vulnerability in JavaScript programming where user-controlled data is used in a way that can lead to Cross-Site Scripting (XSS) vulnerabilities. XSS vulnerabilities occur when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.\n\nIn the provided code snippet, the vulnerability arises from the use of the jQuery `$` function with a user-controlled `element` variable. If an attacker can control the value of `element`, they can inject arbitrary JavaScript code that will be executed by the browser.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data that comes from users. Use a safe API that avoids the use of the interpreter entirely or provides a parameterized interface. Be aware that XSS vulnerabilities can be introduced in many different ways, so always follow best practices for secure coding.\n\n## Source Code Fix Recommendation\n\nA potential fix for the provided code snippet could be to ensure that `element` is a safe value before using it:\n\n```javascript\nif (typeof element === 'string' && element.match(/^[A-Za-z0-9_-]+$/)) {\n    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element);\n} else {\n    // Handle error: element is not safe\n}\n```\n\nThis code checks if `element` is a string containing only alphanumeric characters, underscores, and hyphens. If `element` does not match this pattern, it is considered unsafe and not used.\n\n## Library Dependencies\n\nThe provided code snippet requires the jQuery library.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript refers to a situation where an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the vulnerability lies in the concatenation of `this.type` to form a data attribute selector. If `this.type` is user-controlled and not properly sanitized, it can lead to Cross-Site Scripting (XSS) attacks.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should:\n\n1. **Escape User Input**: Always escape user-controlled data before using it. This ensures that any potentially harmful input is neutralized before it can cause any damage.\n\n2. **Use Safe APIs**: Use APIs, such as Web Templates, which automatically escape user input.\n\n3. **Content Security Policy (CSP)**: Implementing CSP makes it harder for an attacker to inject malicious content.\n\n## Source Code Fix Recommendation\n\nThe code fix involves sanitizing `this.type` before using it. Here's a simple way to do it using the `encodeURI` function:\n\n```javascript\nvar type = encodeURI(this.type);\nobj : $(obj.currentTarget).data('bs.' + type)\n```\n\n## Library Dependencies\n\nThe code example requires the following library to execute properly:\n\n- jQuery\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -694,56 +606,100 @@
               }
             },
             {
+              "id": "0ad5acf2-4ad8-3152-a52d-dcce66bebe23",
+              "name": "Potential XSS Vulnerability from User-Controlled Data in HTML String",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) vulnerabilities occur when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided JavaScript code, the potential XSS vulnerability arises from the use of user-controlled data in the HTML string without proper sanitization or validation. This could allow an attacker to inject malicious scripts that could be executed in the user's browser.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to:\n\n- Always validate user input: User input should always be validated before it is processed. This includes checking for expected data types, lengths, and formats.\n\n- Escape user input: User input should be properly escaped before it is included in HTML content. This ensures that any special characters are treated as literal characters and not as code.\n\n- Use secure APIs: Use APIs, such as element.textContent (and avoid element.innerHTML), that automatically escape user input.\n\n- Use Content Security Policy (CSP): Implementing CSP can effectively reduce the risk and impact of XSS attacks by specifying the domains that the browser should consider to be valid sources of executable scripts.\n\n## Source Code Fix Recommendation\n\nThe provided code does not include any user input, so it's hard to provide a specific fix. However, if user input was included in the CSS method, it should be properly validated and escaped. For example:\n\n```javascript\nlet userInput = getUserInput(); // This is a placeholder for user input\nuserInput = escape(userInput); // Escape user input\n\nthis.arrow()\n      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')\n      .css(isVertical ? 'top' : 'left', userInput)\n```\n\n## Library Dependencies\n\nThe provided code appears to use jQuery for manipulating CSS properties of an element. Therefore, jQuery is a required library dependency for this code to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
+              "id": "41ea159f-bf42-34de-afea-03fbf4a0c508",
+              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nThe provided code snippet is vulnerable to XSS because it uses jQuery to create a new DOM element from a string that is controlled by the user (`this.$tip`). If `this.$tip` contains a malicious script, it will be executed when the DOM element is created.\n\n## Mitigation Advice\n\nTo mitigate XSS vulnerabilities, you should:\n\n- Use frameworks that automatically escape XSS by design, such as Ruby on Rails, React JS, etc.\n- Escape untrusted HTTP request data based on the context in the HTML output (body, attribute, JavaScript, CSS, or URL) will resolve Reflected and Stored XSS vulnerabilities.\n- Apply context-sensitive encoding when modifying the browser document on the client side acts against DOM XSS.\n\n## Source Code Fix Recommendation\n\nIn this specific case, you should ensure that `this.$tip` is properly escaped before it is used to create a new DOM element. Here's how you can do it using jQuery's `text()` function:\n\n```javascript\nvar $tip = $('<div></div>').text(this.$tip);\n```\n\nThis will create a new `<div>` element and set its text content to `this.$tip`, effectively escaping any HTML or JavaScript that `this.$tip` might contain.\n\n## Library Dependencies\n\nThe provided code snippet requires the jQuery library.\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
+              "id": "3ddb988c-d322-3433-99e9-5d4bf85d92c5",
+              "name": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\"",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe \"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\" is a common vulnerability in JavaScript programming where user-controlled data is used in a way that can lead to Cross-Site Scripting (XSS) vulnerabilities. XSS vulnerabilities occur when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.\n\nIn the provided code snippet, the vulnerability arises from the use of the jQuery `$` function with a user-controlled `element` variable. If an attacker can control the value of `element`, they can inject arbitrary JavaScript code that will be executed by the browser.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data that comes from users. Use a safe API that avoids the use of the interpreter entirely or provides a parameterized interface. Be aware that XSS vulnerabilities can be introduced in many different ways, so always follow best practices for secure coding.\n\n## Source Code Fix Recommendation\n\nA potential fix for the provided code snippet could be to ensure that `element` is a safe value before using it:\n\n```javascript\nif (typeof element === 'string' && element.match(/^[A-Za-z0-9_-]+$/)) {\n    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element);\n} else {\n    // Handle error: element is not safe\n}\n```\n\nThis code checks if `element` is a string containing only alphanumeric characters, underscores, and hyphens. If `element` does not match this pattern, it is considered unsafe and not used.\n\n## Library Dependencies\n\nThe provided code snippet requires the jQuery library.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
+              "id": "7313bf39-731d-3664-8253-05556a3b6c41",
+              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe \"XSS Vulnerability from User-Controlled Data Anti-Pattern\" vulnerability in JavaScript occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the vulnerability arises from the concatenation of `this.type` (which could be user-controlled data) with a string to form a data attribute name. If `this.type` is not properly sanitized, it could lead to Cross-Site Scripting (XSS) attacks.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should:\n\n1. Use the principle of least privilege: Only allow necessary permissions for the code to execute properly.\n2. Validate user input: Ensure that user-controlled data is safe before using it.\n3. Escape user input: This ensures that any characters that have special meaning in HTML are properly encoded, preventing them from being interpreted as code.\n4. Use secure APIs: These APIs automatically handle the escaping of user input.\n\n## Source Code Fix Recommendation\n\nA potential fix for the provided code snippet could be to sanitize `this.type` before using it:\n\n```javascript\nvar sanitizedType = encodeURI(this.type);\n$(e.currentTarget).data('bs.' + sanitizedType, self);\n```\n\nThis code uses the `encodeURI` function to sanitize `this.type`, encoding special characters and preventing them from being interpreted as code.\n\n## Library Dependencies\n\nThe provided code snippet requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
               "id": "a101fd31-60ce-3283-8923-e3dd9b9a2c88",
               "name": "Potential XSS vulnerability with JQuery's html function; use text function for plain strings or HtmlUtils.setHtml for html escaping.",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nCross-Site Scripting (XSS) vulnerabilities occur when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided code snippet, the jQuery `html()` function is used, which can potentially introduce an XSS vulnerability if untrusted data is passed to it. This is because the `html()` function does not perform any HTML escaping, and therefore any scripts included in the input will be executed when the HTML is rendered in the browser.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should avoid using the `html()` function with untrusted data. Instead, use the `text()` function for plain strings, which does not interpret the input as HTML and therefore any scripts included will not be executed. If you need to include HTML tags in the output, use a function that performs HTML escaping, such as `HtmlUtils.setHtml()`.\n\n## Source Code Fix Recommendation\n\nThe fixed code should look like this:\n\n```javascript\nif (!$tip.find('.popover-title').text()) $tip.find('.popover-title').hide()\n```\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- jQuery\n\n## References\n\n- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
-              "id": "d0108424-bce3-36d2-b211-3ed520c35cd3",
-              "name": "XSS Vulnerability in User-Controlled HTML Data",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) vulnerabilities occur when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided JavaScript code, the vulnerability lies in the concatenation of user-controlled data (`target`) directly into HTML data. If an attacker can control the `target` value, they can inject arbitrary HTML or JavaScript code, leading to an XSS attack.\n\n## Mitigation Advice\n\nTo mitigate XSS vulnerabilities, you should:\n\n- Use frameworks that automatically escape XSS by design, such as Ruby on Rails, React JS, etc.\n- Escape untrusted HTTP request data based on the context in the HTML output (body, attribute, JavaScript, CSS, or URL) will resolve Reflected and Stored XSS vulnerabilities.\n- Apply context-sensitive encoding when modifying the browser document on the client side acts against DOM XSS.\n\n## Source Code Fix Recommendation\n\nThe code should be modified to properly escape the `target` value before it is used in HTML context. This can be done using the `encodeURI` or `encodeURIComponent` functions in JavaScript:\n\n```javascript\nvar targetEncoded = encodeURIComponent(target);\nvar selector = this.selector +\n      '[data-target=\"' + targetEncoded + '\"],' +\n      this.selector + '[href=\"' + targetEncoded + '\"]'\n```\n\n## Library Dependencies\n\nThe provided code snippet does not appear to have any specific library dependencies.\n\n## OWASP and CWE Resources\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
-              },
-              "properties": {
-                "cwe": [
-                  {
-                    "id": "CWE-79",
-                    "url": "https://cwe.mitre.org/data/definitions/79.html"
-                  }
-                ],
-                "severity": "MEDIUM",
-                "kind": "FAIL",
-                "tags": [
-                  "CWE-79"
-                ]
-              }
-            },
-            {
-              "id": "7f56c046-fa90-32e9-a872-ad4c5d2a546d",
-              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
-              "helpUri": "https://www.glog.ai/",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript where an attacker can inject malicious scripts into webpages viewed by other users. This vulnerability occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.\n\nIn the provided code snippet, the vulnerability arises from the use of user-controlled data in the jQuery function `$()`. If the `element` variable contains user-controlled data, it can lead to an XSS vulnerability.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data received from the user. Use context-specific output encoding/escaping techniques on all user-supplied data before including it in the HTML output.\n\n## Source Code Fix Recommendation\n\n```javascript\n// Assuming element is an ID\nthis.element = document.getElementById(element);\n```\n\nIn the above code, we are using the `getElementById` method which does not interpret the input as HTML, thus preventing the XSS vulnerability.\n\n## Library Dependencies\n\nThe provided code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -804,12 +760,56 @@
               }
             },
             {
+              "id": "d0108424-bce3-36d2-b211-3ed520c35cd3",
+              "name": "XSS Vulnerability in User-Controlled HTML Data",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) vulnerabilities occur when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. XSS allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\nIn the provided JavaScript code, the vulnerability lies in the concatenation of user-controlled data (`target`) directly into HTML data. If an attacker can control the `target` value, they can inject arbitrary HTML or JavaScript code, leading to an XSS attack.\n\n## Mitigation Advice\n\nTo mitigate XSS vulnerabilities, you should:\n\n- Use frameworks that automatically escape XSS by design, such as Ruby on Rails, React JS, etc.\n- Escape untrusted HTTP request data based on the context in the HTML output (body, attribute, JavaScript, CSS, or URL) will resolve Reflected and Stored XSS vulnerabilities.\n- Apply context-sensitive encoding when modifying the browser document on the client side acts against DOM XSS.\n\n## Source Code Fix Recommendation\n\nThe code should be modified to properly escape the `target` value before it is used in HTML context. This can be done using the `encodeURI` or `encodeURIComponent` functions in JavaScript:\n\n```javascript\nvar targetEncoded = encodeURIComponent(target);\nvar selector = this.selector +\n      '[data-target=\"' + targetEncoded + '\"],' +\n      this.selector + '[href=\"' + targetEncoded + '\"]'\n```\n\n## Library Dependencies\n\nThe provided code snippet does not appear to have any specific library dependencies.\n\n## OWASP and CWE Resources\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
               "id": "4e7fe6e3-fb59-3b58-80a5-ab5a38ce9426",
               "name": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\"",
               "helpUri": "https://www.glog.ai/",
               "help": {
                 "text": "",
                 "markdown": "## Description\n\nThe \"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\" is a common security vulnerability in JavaScript programming. It occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript. This allows attackers to execute scripts in the victim's browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to:\n\n1. Use the features of your web framework that automatically escape output. Most web frameworks include methods to escape user-controlled input and it's important to use them properly.\n\n2. Do not use user input in selector expressions without proper escaping.\n\n3. Use Content Security Policy (CSP) to reduce the severity of any XSS vulnerabilities.\n\n## Source Code Fix Recommendation\n\nThe following is a fix for the specific vulnerability sink:\n\n```javascript\nvar selector = /* user-controlled input */;\n// Ensure that the selector is safe\nif (/^[a-zA-Z0-9#._-]+$/.test(selector)) {\n    var active = $(selector);\n} else {\n    // Handle the error condition\n}\n```\n\n## Library Dependencies\n\nThe code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-79",
+                    "url": "https://cwe.mitre.org/data/definitions/79.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-79"
+                ]
+              }
+            },
+            {
+              "id": "7f56c046-fa90-32e9-a872-ad4c5d2a546d",
+              "name": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\"",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nCross-Site Scripting (XSS) Vulnerability from User-Controlled Data Anti-Pattern is a common security vulnerability in JavaScript where an attacker can inject malicious scripts into webpages viewed by other users. This vulnerability occurs when an application includes untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.\n\nIn the provided code snippet, the vulnerability arises from the use of user-controlled data in the jQuery function `$()`. If the `element` variable contains user-controlled data, it can lead to an XSS vulnerability.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always validate and sanitize user input. Never trust data received from the user. Use context-specific output encoding/escaping techniques on all user-supplied data before including it in the HTML output.\n\n## Source Code Fix Recommendation\n\n```javascript\n// Assuming element is an ID\nthis.element = document.getElementById(element);\n```\n\nIn the above code, we are using the `getElementById` method which does not interpret the input as HTML, thus preventing the XSS vulnerability.\n\n## Library Dependencies\n\nThe provided code example requires the jQuery library to execute properly.\n\n## References\n\n- [OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)\n- [OWASP DOM based XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html)\n- [CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')](https://cwe.mitre.org/data/definitions/79.html)"
               },
               "properties": {
                 "cwe": [
@@ -872,76 +872,6 @@
           "properties": {}
         },
         {
-          "ruleId": "67c6c8ff-a776-39c7-a348-2455c3c2eb4a",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 280,
-                  "startColumn": 18,
-                  "endLine": 280,
-                  "endColumn": 29,
-                  "snippet": {
-                    "text": "      var $btn = $(e.target)"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "008796684599b95bf60fc206ae3917743391b3d469a58460e888fae9f7780da5",
-            "glog-pfp-ruleFileCode/v1": "9f38d38097cec628eedf0a5647c0c64390600d14fceec7e47049b5c2f2e37250"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "9f38d38097cec628eedf0a5647c0c64390600d14fceec7e47049b5c2f2e37250"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "e8750dc5-2fc7-3f9b-913e-67da2b30eda5",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 190,
-                  "startColumn": 22,
-                  "endLine": 190,
-                  "endColumn": 32,
-                  "snippet": {
-                    "text": "    this.$element  = $(element)"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "6c6b51f45a82a1187d513344b9e6857e511c956ab5ecd9ecb4d450a15dabd49d",
-            "glog-pfp-ruleFileCode/v1": "18475f67911d014e64c245b94b8e2eb1a7fa7f115be8067864b9cd3e93c811db"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "18475f67911d014e64c245b94b8e2eb1a7fa7f115be8067864b9cd3e93c811db"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "ca489662-a73b-39e4-83f8-9160b14d7dff",
           "kind": "fail",
           "level": "warning",
@@ -977,42 +907,7 @@
           "properties": {}
         },
         {
-          "ruleId": "9f7d649f-4b7a-3fcf-b4c0-f65db6c75992",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"Potential XSS Vulnerability from User-Controlled Data in HTML String\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 442,
-                  "startColumn": 11,
-                  "endLine": 442,
-                  "endColumn": 76,
-                  "snippet": {
-                    "text": "          $next.removeClass([type, direction].join(' ')).addClass('active')"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "2f18c04f24ff4c7561e1e9a7daad6f167a63c752acfe198858032ca55756e7f8",
-            "glog-pfp-ruleFileCode/v1": "9d39724ac820072fbdf3bbb39285e3279cec9cab0b027bc8119ad2fe49aca12e"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "9d39724ac820072fbdf3bbb39285e3279cec9cab0b027bc8119ad2fe49aca12e"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "8b566c71-afcc-367e-9af7-3b2f9df22a48",
+          "ruleId": "67c6c8ff-a776-39c7-a348-2455c3c2eb4a",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -1026,23 +921,23 @@
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 286,
-                  "startColumn": 7,
-                  "endLine": 286,
-                  "endColumn": 18,
+                  "startLine": 280,
+                  "startColumn": 18,
+                  "endLine": 280,
+                  "endColumn": 29,
                   "snippet": {
-                    "text": "      $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))"
+                    "text": "      var $btn = $(e.target)"
                   }
                 }
               }
             }
           ],
           "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "1a96adef29451b41a529972330b69a4a26c19455dabe758985b307dfd2103ac6",
-            "glog-pfp-ruleFileCode/v1": "4f36530cba80a32c57f6b51abb002d89ddef2fda219958d2a6235df0058dbc10"
+            "glog-pfp-ruleFileLineCode/v1": "008796684599b95bf60fc206ae3917743391b3d469a58460e888fae9f7780da5",
+            "glog-pfp-ruleFileCode/v1": "9f38d38097cec628eedf0a5647c0c64390600d14fceec7e47049b5c2f2e37250"
           },
           "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "4f36530cba80a32c57f6b51abb002d89ddef2fda219958d2a6235df0058dbc10"
+            "glog-fp-ruleFileCode/v1": "9f38d38097cec628eedf0a5647c0c64390600d14fceec7e47049b5c2f2e37250"
           },
           "properties": {}
         },
@@ -1082,6 +977,111 @@
           "properties": {}
         },
         {
+          "ruleId": "9f7d649f-4b7a-3fcf-b4c0-f65db6c75992",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"Potential XSS Vulnerability from User-Controlled Data in HTML String\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 442,
+                  "startColumn": 11,
+                  "endLine": 442,
+                  "endColumn": 76,
+                  "snippet": {
+                    "text": "          $next.removeClass([type, direction].join(' ')).addClass('active')"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "2f18c04f24ff4c7561e1e9a7daad6f167a63c752acfe198858032ca55756e7f8",
+            "glog-pfp-ruleFileCode/v1": "9d39724ac820072fbdf3bbb39285e3279cec9cab0b027bc8119ad2fe49aca12e"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "9d39724ac820072fbdf3bbb39285e3279cec9cab0b027bc8119ad2fe49aca12e"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "e8750dc5-2fc7-3f9b-913e-67da2b30eda5",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 190,
+                  "startColumn": 22,
+                  "endLine": 190,
+                  "endColumn": 32,
+                  "snippet": {
+                    "text": "    this.$element  = $(element)"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "6c6b51f45a82a1187d513344b9e6857e511c956ab5ecd9ecb4d450a15dabd49d",
+            "glog-pfp-ruleFileCode/v1": "18475f67911d014e64c245b94b8e2eb1a7fa7f115be8067864b9cd3e93c811db"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "18475f67911d014e64c245b94b8e2eb1a7fa7f115be8067864b9cd3e93c811db"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "8b566c71-afcc-367e-9af7-3b2f9df22a48",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 7,
+                  "endLine": 286,
+                  "endColumn": 18,
+                  "snippet": {
+                    "text": "      $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "1a96adef29451b41a529972330b69a4a26c19455dabe758985b307dfd2103ac6",
+            "glog-pfp-ruleFileCode/v1": "4f36530cba80a32c57f6b51abb002d89ddef2fda219958d2a6235df0058dbc10"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "4f36530cba80a32c57f6b51abb002d89ddef2fda219958d2a6235df0058dbc10"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "f9350133-b02f-342b-9e79-12494f616092",
           "kind": "fail",
           "level": "warning",
@@ -1113,41 +1113,6 @@
           },
           "fingerprints": {
             "glog-fp-ruleFileCode/v1": "c4eafa31a41c63ea5cdc1979789c3c6a663c3039adfeae54725d2b38bf65cbaf"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "2ce4b686-39cf-3dce-99c2-8a20f4514fc8",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 545,
-                  "startColumn": 26,
-                  "endLine": 545,
-                  "endColumn": 36,
-                  "snippet": {
-                    "text": "    this.$element      = $(element)"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "60cc043d65abca17809291ba7042329e353d53793e319c4b37d54797d90dd6b6",
-            "glog-pfp-ruleFileCode/v1": "9791c0a0304eae45262e9c43728ddf7eb1f7c01d496193243d13041e3544b2b9"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "9791c0a0304eae45262e9c43728ddf7eb1f7c01d496193243d13041e3544b2b9"
           },
           "properties": {}
         },
@@ -1222,42 +1187,7 @@
           "properties": {}
         },
         {
-          "ruleId": "ac83c083-8b33-3d23-9254-f0ac71a6e453",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 759,
-                  "startColumn": 5,
-                  "endLine": 759,
-                  "endColumn": 15,
-                  "snippet": {
-                    "text": "    $(element).on('click.bs.dropdown', this.toggle)"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "3d10055253709884e1d69541c6072ef907dc425f7ee925f42e3a9858cd90d0c1",
-            "glog-pfp-ruleFileCode/v1": "3d65dcaaa835d1ec2b816777e23b2e3467aa8031bac030f4feb54d27dde34dde"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "3d65dcaaa835d1ec2b816777e23b2e3467aa8031bac030f4feb54d27dde34dde"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "98029ee4-79db-3916-9522-289d0cf9cca2",
+          "ruleId": "2ce4b686-39cf-3dce-99c2-8a20f4514fc8",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -1271,23 +1201,23 @@
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 690,
-                  "startColumn": 12,
-                  "endLine": 690,
-                  "endColumn": 21,
+                  "startLine": 545,
+                  "startColumn": 26,
+                  "endLine": 545,
+                  "endColumn": 36,
                   "snippet": {
-                    "text": "    return $(target)"
+                    "text": "    this.$element      = $(element)"
                   }
                 }
               }
             }
           ],
           "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "bb9e2ccb75e42fdbd7197face352c33b1455ffb73ce2af7586a162654669f8cc",
-            "glog-pfp-ruleFileCode/v1": "dc7187600150c19f9cc38c6d8bdccbbff324a7618ede5fc5f6bd00e84d4246c2"
+            "glog-pfp-ruleFileLineCode/v1": "60cc043d65abca17809291ba7042329e353d53793e319c4b37d54797d90dd6b6",
+            "glog-pfp-ruleFileCode/v1": "9791c0a0304eae45262e9c43728ddf7eb1f7c01d496193243d13041e3544b2b9"
           },
           "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "dc7187600150c19f9cc38c6d8bdccbbff324a7618ede5fc5f6bd00e84d4246c2"
+            "glog-fp-ruleFileCode/v1": "9791c0a0304eae45262e9c43728ddf7eb1f7c01d496193243d13041e3544b2b9"
           },
           "properties": {}
         },
@@ -1327,7 +1257,7 @@
           "properties": {}
         },
         {
-          "ruleId": "0f66dba1-7064-374d-9485-37e4c89b0d77",
+          "ruleId": "98029ee4-79db-3916-9522-289d0cf9cca2",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -1341,23 +1271,23 @@
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 921,
-                  "startColumn": 32,
-                  "endLine": 921,
-                  "endColumn": 42,
+                  "startLine": 690,
+                  "startColumn": 12,
+                  "endLine": 690,
+                  "endColumn": 21,
                   "snippet": {
-                    "text": "    this.$element            = $(element)"
+                    "text": "    return $(target)"
                   }
                 }
               }
             }
           ],
           "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "792b79afd403d148691ad2cdd89ae039a7f351f32474c05c86b36ad166a792a0",
-            "glog-pfp-ruleFileCode/v1": "989dbc2c20b7b24f02fb472f5fedff3333e663a77fcf866c7a30dab91dc8992f"
+            "glog-pfp-ruleFileLineCode/v1": "bb9e2ccb75e42fdbd7197face352c33b1455ffb73ce2af7586a162654669f8cc",
+            "glog-pfp-ruleFileCode/v1": "dc7187600150c19f9cc38c6d8bdccbbff324a7618ede5fc5f6bd00e84d4246c2"
           },
           "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "989dbc2c20b7b24f02fb472f5fedff3333e663a77fcf866c7a30dab91dc8992f"
+            "glog-fp-ruleFileCode/v1": "dc7187600150c19f9cc38c6d8bdccbbff324a7618ede5fc5f6bd00e84d4246c2"
           },
           "properties": {}
         },
@@ -1397,11 +1327,11 @@
           "properties": {}
         },
         {
-          "ruleId": "1f32be1a-25c9-3a75-be95-da4faff0d598",
+          "ruleId": "ac83c083-8b33-3d23-9254-f0ac71a6e453",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+            "text": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\""
           },
           "locations": [
             {
@@ -1411,23 +1341,23 @@
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 856,
-                  "startColumn": 31,
-                  "endLine": 856,
-                  "endColumn": 42,
+                  "startLine": 759,
+                  "startColumn": 5,
+                  "endLine": 759,
+                  "endColumn": 15,
                   "snippet": {
-                    "text": "    var $parent = selector && $(selector)"
+                    "text": "    $(element).on('click.bs.dropdown', this.toggle)"
                   }
                 }
               }
             }
           ],
           "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "8018655bfe8410eaf4880ca8936535a19f1e6c1836a9f6dcb8379e1f04455356",
-            "glog-pfp-ruleFileCode/v1": "e6b83462e0cb28e0bc87eb5e92b9abc82497bb48de22518f31801a644fed6f44"
+            "glog-pfp-ruleFileLineCode/v1": "3d10055253709884e1d69541c6072ef907dc425f7ee925f42e3a9858cd90d0c1",
+            "glog-pfp-ruleFileCode/v1": "3d65dcaaa835d1ec2b816777e23b2e3467aa8031bac030f4feb54d27dde34dde"
           },
           "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "e6b83462e0cb28e0bc87eb5e92b9abc82497bb48de22518f31801a644fed6f44"
+            "glog-fp-ruleFileCode/v1": "3d65dcaaa835d1ec2b816777e23b2e3467aa8031bac030f4feb54d27dde34dde"
           },
           "properties": {}
         },
@@ -1467,6 +1397,41 @@
           "properties": {}
         },
         {
+          "ruleId": "1f32be1a-25c9-3a75-be95-da4faff0d598",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 856,
+                  "startColumn": 31,
+                  "endLine": 856,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "    var $parent = selector && $(selector)"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "8018655bfe8410eaf4880ca8936535a19f1e6c1836a9f6dcb8379e1f04455356",
+            "glog-pfp-ruleFileCode/v1": "e6b83462e0cb28e0bc87eb5e92b9abc82497bb48de22518f31801a644fed6f44"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "e6b83462e0cb28e0bc87eb5e92b9abc82497bb48de22518f31801a644fed6f44"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "3b6d1d2a-05ed-381c-9064-5e920dff30f1",
           "kind": "fail",
           "level": "warning",
@@ -1498,6 +1463,41 @@
           },
           "fingerprints": {
             "glog-fp-ruleFileCode/v1": "feb9c3806ae2f7e8cf4dc749dfdbbc4f7f96ab49cdd20be07b896b80fa287e6b"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "0f66dba1-7064-374d-9485-37e4c89b0d77",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 921,
+                  "startColumn": 32,
+                  "endLine": 921,
+                  "endColumn": 42,
+                  "snippet": {
+                    "text": "    this.$element            = $(element)"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "792b79afd403d148691ad2cdd89ae039a7f351f32474c05c86b36ad166a792a0",
+            "glog-pfp-ruleFileCode/v1": "989dbc2c20b7b24f02fb472f5fedff3333e663a77fcf866c7a30dab91dc8992f"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "989dbc2c20b7b24f02fb472f5fedff3333e663a77fcf866c7a30dab91dc8992f"
           },
           "properties": {}
         },
@@ -1572,6 +1572,41 @@
           "properties": {}
         },
         {
+          "ruleId": "2563161e-9f7e-39e1-9a12-7545785b4f6d",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1381,
+                  "startColumn": 7,
+                  "endLine": 1381,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "      $(obj.currentTarget).data('bs.' + this.type, self)"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "87a08ab2806c27e0e43792ff305848ae34c46056deec39977a8b9afff5496c35",
+            "glog-pfp-ruleFileCode/v1": "650ce715143f269a29555c785b9d2a36a9fcfb97c0dead744243cf75e4839e66"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "650ce715143f269a29555c785b9d2a36a9fcfb97c0dead744243cf75e4839e66"
+          },
+          "properties": {}
+        },
+        {
           "ruleId": "0ad5acf2-4ad8-3152-a52d-dcce66bebe23",
           "kind": "fail",
           "level": "warning",
@@ -1642,111 +1677,6 @@
           "properties": {}
         },
         {
-          "ruleId": "a8c80fde-a5e3-3697-9de5-0a5f089a0e35",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 1377,
-                  "startColumn": 13,
-                  "endLine": 1377,
-                  "endColumn": 33,
-                  "snippet": {
-                    "text": "      obj : $(obj.currentTarget).data('bs.' + this.type)"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "20d30663aa484cb9cd175bcb42d35e276d2c664959a51cda8a01a72a772a9372",
-            "glog-pfp-ruleFileCode/v1": "26ae59427bfc14868d3e0560f14233ce6a7306bef63416e037057b36c39cc2be"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "26ae59427bfc14868d3e0560f14233ce6a7306bef63416e037057b36c39cc2be"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "2563161e-9f7e-39e1-9a12-7545785b4f6d",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 1381,
-                  "startColumn": 7,
-                  "endLine": 1381,
-                  "endColumn": 27,
-                  "snippet": {
-                    "text": "      $(obj.currentTarget).data('bs.' + this.type, self)"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "87a08ab2806c27e0e43792ff305848ae34c46056deec39977a8b9afff5496c35",
-            "glog-pfp-ruleFileCode/v1": "650ce715143f269a29555c785b9d2a36a9fcfb97c0dead744243cf75e4839e66"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "650ce715143f269a29555c785b9d2a36a9fcfb97c0dead744243cf75e4839e66"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "41ea159f-bf42-34de-afea-03fbf4a0c508",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 1537,
-                  "startColumn": 16,
-                  "endLine": 1537,
-                  "endColumn": 28,
-                  "snippet": {
-                    "text": "    var $tip = $(this.$tip)"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "55fe6fcf8972c7609d3d54d37ffae92eaacab176c49b71c5fd670173801c7a7c",
-            "glog-pfp-ruleFileCode/v1": "ccee8dde5bdffc1e1c950c9a7f9689b30d0457ec80bb803daa933b51ae83e17a"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "ccee8dde5bdffc1e1c950c9a7f9689b30d0457ec80bb803daa933b51ae83e17a"
-          },
-          "properties": {}
-        },
-        {
           "ruleId": "dd64e461-daee-3825-be77-df3ac81569a3",
           "kind": "fail",
           "level": "warning",
@@ -1782,7 +1712,7 @@
           "properties": {}
         },
         {
-          "ruleId": "7313bf39-731d-3664-8253-05556a3b6c41",
+          "ruleId": "a8c80fde-a5e3-3697-9de5-0a5f089a0e35",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -1796,58 +1726,23 @@
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 1673,
-                  "startColumn": 9,
-                  "endLine": 1673,
-                  "endColumn": 27,
+                  "startLine": 1377,
+                  "startColumn": 13,
+                  "endLine": 1377,
+                  "endColumn": 33,
                   "snippet": {
-                    "text": "        $(e.currentTarget).data('bs.' + this.type, self)"
+                    "text": "      obj : $(obj.currentTarget).data('bs.' + this.type)"
                   }
                 }
               }
             }
           ],
           "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "90597fd326650fd0a1b7bcbdf36d3eb0282c40b87ac9977641ceb57a42571a66",
-            "glog-pfp-ruleFileCode/v1": "34ebad52a1a7a29a5da6dfa1a3924a32e99a03614d1e9e0dbe903319877141e3"
+            "glog-pfp-ruleFileLineCode/v1": "20d30663aa484cb9cd175bcb42d35e276d2c664959a51cda8a01a72a772a9372",
+            "glog-pfp-ruleFileCode/v1": "26ae59427bfc14868d3e0560f14233ce6a7306bef63416e037057b36c39cc2be"
           },
           "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "34ebad52a1a7a29a5da6dfa1a3924a32e99a03614d1e9e0dbe903319877141e3"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "451f3eaf-04ed-3e04-951f-b45a25272260",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "js/bootstrap.js",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 1846,
-                  "startColumn": 27,
-                  "endLine": 1846,
-                  "endColumn": 37,
-                  "snippet": {
-                    "text": "    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)"
-                  }
-                }
-              }
-            }
-          ],
-          "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "b80995cc9cb2783779f5c944a75684b5babf54d18b533640bd80d9df5a4af9e3",
-            "glog-pfp-ruleFileCode/v1": "367a091d3e774f4c32f5b3f25a471afc42699ff5b13d9b12c7995d744b1e46c1"
-          },
-          "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "367a091d3e774f4c32f5b3f25a471afc42699ff5b13d9b12c7995d744b1e46c1"
+            "glog-fp-ruleFileCode/v1": "26ae59427bfc14868d3e0560f14233ce6a7306bef63416e037057b36c39cc2be"
           },
           "properties": {}
         },
@@ -1922,11 +1817,11 @@
           "properties": {}
         },
         {
-          "ruleId": "d0108424-bce3-36d2-b211-3ed520c35cd3",
+          "ruleId": "41ea159f-bf42-34de-afea-03fbf4a0c508",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "XSS Vulnerability in User-Controlled HTML Data"
+            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
           },
           "locations": [
             {
@@ -1936,23 +1831,93 @@
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 1937,
-                  "startColumn": 5,
-                  "endLine": 1939,
-                  "endColumn": 48,
+                  "startLine": 1537,
+                  "startColumn": 16,
+                  "endLine": 1537,
+                  "endColumn": 28,
                   "snippet": {
-                    "text": "    var selector = this.selector +\n      '[data-target=\"' + target + '\"],' +\n      this.selector + '[href=\"' + target + '\"]'"
+                    "text": "    var $tip = $(this.$tip)"
                   }
                 }
               }
             }
           ],
           "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "4dc4d2e7c440e4df374445ab57a73b1ae580596d0637e61dca23912b686ed90b",
-            "glog-pfp-ruleFileCode/v1": "abeb05638b7b32e36347aa63fca354adc06675284b0f65e080e9e2fad79f24aa"
+            "glog-pfp-ruleFileLineCode/v1": "55fe6fcf8972c7609d3d54d37ffae92eaacab176c49b71c5fd670173801c7a7c",
+            "glog-pfp-ruleFileCode/v1": "ccee8dde5bdffc1e1c950c9a7f9689b30d0457ec80bb803daa933b51ae83e17a"
           },
           "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "abeb05638b7b32e36347aa63fca354adc06675284b0f65e080e9e2fad79f24aa"
+            "glog-fp-ruleFileCode/v1": "ccee8dde5bdffc1e1c950c9a7f9689b30d0457ec80bb803daa933b51ae83e17a"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "3ddb988c-d322-3433-99e9-5d4bf85d92c5",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"Anti-Pattern User-Controlled Data Leading to XSS Vulnerabilities\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1846,
+                  "startColumn": 70,
+                  "endLine": 1846,
+                  "endColumn": 80,
+                  "snippet": {
+                    "text": "    this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "e7700a3e7c9cfcad3ed06f4f464d830def325a2e172ba386cf8a4c410e9f93ff",
+            "glog-pfp-ruleFileCode/v1": "c954c1faeb5bff1698f9bf93205ac8ddbe657f1d36913160a2cf081155b9d600"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "c954c1faeb5bff1698f9bf93205ac8ddbe657f1d36913160a2cf081155b9d600"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "7313bf39-731d-3664-8253-05556a3b6c41",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 1673,
+                  "startColumn": 9,
+                  "endLine": 1673,
+                  "endColumn": 27,
+                  "snippet": {
+                    "text": "        $(e.currentTarget).data('bs.' + this.type, self)"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "90597fd326650fd0a1b7bcbdf36d3eb0282c40b87ac9977641ceb57a42571a66",
+            "glog-pfp-ruleFileCode/v1": "34ebad52a1a7a29a5da6dfa1a3924a32e99a03614d1e9e0dbe903319877141e3"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "34ebad52a1a7a29a5da6dfa1a3924a32e99a03614d1e9e0dbe903319877141e3"
           },
           "properties": {}
         },
@@ -1992,11 +1957,11 @@
           "properties": {}
         },
         {
-          "ruleId": "7f56c046-fa90-32e9-a872-ad4c5d2a546d",
+          "ruleId": "d0108424-bce3-36d2-b211-3ed520c35cd3",
           "kind": "fail",
           "level": "warning",
           "message": {
-            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+            "text": "XSS Vulnerability in User-Controlled HTML Data"
           },
           "locations": [
             {
@@ -2006,23 +1971,23 @@
                   "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
-                  "startLine": 2018,
-                  "startColumn": 20,
-                  "endLine": 2018,
-                  "endColumn": 30,
+                  "startLine": 1937,
+                  "startColumn": 5,
+                  "endLine": 1939,
+                  "endColumn": 48,
                   "snippet": {
-                    "text": "    this.element = $(element)"
+                    "text": "    var selector = this.selector +\n      '[data-target=\"' + target + '\"],' +\n      this.selector + '[href=\"' + target + '\"]'"
                   }
                 }
               }
             }
           ],
           "partialFingerprints": {
-            "glog-pfp-ruleFileLineCode/v1": "815740aa707493cc69b598ec49ad8db89fa9eb2b327dbe8e6bbea1a15c7ef205",
-            "glog-pfp-ruleFileCode/v1": "8a2753fa70ef5e292fd8819084e7ca0c37fdbd4a4ec0f9ff915853512ed8d4d5"
+            "glog-pfp-ruleFileLineCode/v1": "4dc4d2e7c440e4df374445ab57a73b1ae580596d0637e61dca23912b686ed90b",
+            "glog-pfp-ruleFileCode/v1": "abeb05638b7b32e36347aa63fca354adc06675284b0f65e080e9e2fad79f24aa"
           },
           "fingerprints": {
-            "glog-fp-ruleFileCode/v1": "8a2753fa70ef5e292fd8819084e7ca0c37fdbd4a4ec0f9ff915853512ed8d4d5"
+            "glog-fp-ruleFileCode/v1": "abeb05638b7b32e36347aa63fca354adc06675284b0f65e080e9e2fad79f24aa"
           },
           "properties": {}
         },
@@ -2128,6 +2093,41 @@
           },
           "fingerprints": {
             "glog-fp-ruleFileCode/v1": "71ebb0b1d2331430457445bceec621dc94112b38d7f9c3c3ff2b65601c546c12"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "7f56c046-fa90-32e9-a872-ad4c5d2a546d",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"XSS Vulnerability from User-Controlled Data Anti-Pattern\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "js/bootstrap.js",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 2018,
+                  "startColumn": 20,
+                  "endLine": 2018,
+                  "endColumn": 30,
+                  "snippet": {
+                    "text": "    this.element = $(element)"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "815740aa707493cc69b598ec49ad8db89fa9eb2b327dbe8e6bbea1a15c7ef205",
+            "glog-pfp-ruleFileCode/v1": "8a2753fa70ef5e292fd8819084e7ca0c37fdbd4a4ec0f9ff915853512ed8d4d5"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "8a2753fa70ef5e292fd8819084e7ca0c37fdbd4a4ec0f9ff915853512ed8d4d5"
           },
           "properties": {}
         }
